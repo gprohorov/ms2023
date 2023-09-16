@@ -1,7 +1,9 @@
 package edu.pro.ms2023.service;
 
 import edu.pro.ms2023.model.Musicant;
+import edu.pro.ms2023.repository.MusRepository;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,7 +22,10 @@ import java.util.UUID;
 public class OrchestraService {
     private List<Musicant> orchestra = new ArrayList<>();
 
-    @PostConstruct
+    @Autowired
+    MusRepository repository;
+
+  //  @PostConstruct
     void init(){
         orchestra.add(new Musicant("1","John Lennon", "Beatles"));
         orchestra.add(new Musicant("2","Freddie Mercury ", "Queen"));
@@ -30,24 +35,20 @@ public class OrchestraService {
 //        orchestras.add(new Orchestra("Freddie Mercury ", "Queen"));
 //        orchestras.add(new Orchestra("Tarja Turunen", "Nightwish"));
 //
+        repository.saveAll(orchestra);
     }
 
     public List<Musicant> getAll(){
-        return orchestra;
+        return repository.findAll();
     }
 
     //READ
     public Musicant get(String id) {
-        return orchestra.stream().filter(el -> el.getId()
-                .equals(id))
-                .findFirst()
-                .orElse(null);
+        return repository.findById(id).orElse(null);
     }
 
     public Musicant create(Musicant mus) {
-        mus.setId(UUID.randomUUID().toString());
         mus.setCreatedAt(LocalDateTime.now());
-        orchestra.add(mus);
-        return  mus;
+        return  repository.save(mus);
     }
 }
