@@ -1,11 +1,13 @@
 package edu.pro.ms2023.service;
 
-import edu.pro.ms2023.model.Orchestra;
+import edu.pro.ms2023.model.Musicant;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /*
   @author   george
@@ -16,30 +18,36 @@ import java.util.List;
 */
 @Service
 public class OrchestraService {
-    private List<Orchestra> orchestras = new ArrayList<>();
+    private List<Musicant> orchestra = new ArrayList<>();
 
     @PostConstruct
     void init(){
-        orchestras.add(new Orchestra("1","John Lennon", "Beatles"));
-        orchestras.add(new Orchestra("2","Freddie Mercury ", "Queen"));
-        orchestras.add(new Orchestra("3","Tarja Turunen", "Nightwish"));
-//
+        orchestra.add(new Musicant("1","John Lennon", "Beatles"));
+        orchestra.add(new Musicant("2","Freddie Mercury ", "Queen"));
+        orchestra.add(new Musicant("3","Tarja Turunen", "Nightwish"));
+
 //        orchestras.add(new Orchestra("John Lennon", "Beatles"));
 //        orchestras.add(new Orchestra("Freddie Mercury ", "Queen"));
 //        orchestras.add(new Orchestra("Tarja Turunen", "Nightwish"));
 //
     }
 
-    public List<Orchestra> getAll(){
-        return orchestras;
+    public List<Musicant> getAll(){
+        return orchestra;
     }
 
     //READ
-    public Orchestra get(String id) {
-        return orchestras.stream().filter(el -> el.getId()
+    public Musicant get(String id) {
+        return orchestra.stream().filter(el -> el.getId()
                 .equals(id))
                 .findFirst()
                 .orElse(null);
     }
 
+    public Musicant create(Musicant mus) {
+        mus.setId(UUID.randomUUID().toString());
+        mus.setCreatedAt(LocalDateTime.now());
+        orchestra.add(mus);
+        return  mus;
+    }
 }

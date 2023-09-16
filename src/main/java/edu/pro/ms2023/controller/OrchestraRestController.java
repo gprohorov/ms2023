@@ -1,6 +1,6 @@
 package edu.pro.ms2023.controller;
 
-import edu.pro.ms2023.model.Orchestra;
+import edu.pro.ms2023.model.Musicant;
 import edu.pro.ms2023.service.OrchestraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import java.util.List;
   @since 11.09.23 - 11.56
 */
 @RestController
-@RequestMapping("/api/v1/orchestras/")
+@RequestMapping("/api/v1/orchestra/")
 public class OrchestraRestController {
 
     @Autowired
@@ -27,12 +27,12 @@ public class OrchestraRestController {
     }
 
     @RequestMapping()
-    List<Orchestra> showAll(){
+    List<Musicant> showAll(){
         return service.getAll();
     }
 
     @RequestMapping("{id}")
-    Orchestra showOne(@PathVariable String id) {
+    Musicant showOne(@PathVariable String id) {
         return service.get(id);
     }
 
@@ -41,11 +41,11 @@ public class OrchestraRestController {
         // TODO
     }
     @PostMapping()
-    Orchestra create(@RequestBody Orchestra orchestra) {
-        return  null; // TODO
+    Musicant create(@RequestBody Musicant mus) {
+        return  service.create(mus);
     }
     @PutMapping()
-    Orchestra update(@RequestBody Orchestra orchestra) {
+    Musicant update(@RequestBody Musicant orchestra) {
         return  null; // TODO
     }
 

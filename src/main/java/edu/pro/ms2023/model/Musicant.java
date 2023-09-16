@@ -17,29 +17,29 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Orchestra {
+public class Musicant {
     String id;
     String name;
     String description;
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
 
-    public Orchestra(String name,
-                     String description,
-                     LocalDateTime createdAt,
-                     LocalDateTime updatedAt) {
+    public Musicant(String name,
+                    String description,
+                    LocalDateTime createdAt,
+                    LocalDateTime updatedAt) {
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Orchestra(String name, String description) {
+    public Musicant(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Orchestra(String id, String name, String description) {
+    public Musicant(String id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -49,7 +49,7 @@ public class Orchestra {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Orchestra orchestra = (Orchestra) o;
+        Musicant orchestra = (Musicant) o;
         return Objects.equals(getId(), orchestra.getId());
     }
 
