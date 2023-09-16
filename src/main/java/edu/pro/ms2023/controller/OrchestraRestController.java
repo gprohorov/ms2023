@@ -45,7 +45,7 @@ public class OrchestraRestController {
         return  service.create(mus);
     }
     @PutMapping()
-    Musicant update(@RequestBody Musicant orchestra) {
+    Musicant update(@RequestBody Musicant musicant) {
         return  null; // TODO
     }
 
