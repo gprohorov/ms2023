@@ -51,4 +51,8 @@ public class OrchestraService {
         mus.setCreatedAt(LocalDateTime.now());
         return  repository.save(mus);
     }
+
+    public void delete(String id) {
+        repository.deleteById(id);
+    }
 }

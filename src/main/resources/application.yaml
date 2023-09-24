@@ -4,3 +4,5 @@ spring:
       database: ms2023
       host: localhost
       port: 27017
+  freemarker:
+    suffix: .ftl
