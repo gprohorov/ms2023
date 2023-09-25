@@ -2,6 +2,8 @@ package edu.pro.ms2023.controller;
 
 import edu.pro.ms2023.model.Musicant;
 import edu.pro.ms2023.service.OrchestraService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ import java.util.List;
 */
 @RestController
 @RequestMapping("/api/v1/orchestra/")
+@Tag(name = " Контролер Оркестру", description = " Повний КРУД")
 public class OrchestraRestController {
 
     @Autowired
@@ -31,6 +34,7 @@ public class OrchestraRestController {
         return service.getAll();
     }
 
+    @Operation(summary = " Пошук музиканта по ай-ді", description = " Повертає об'єкт"  )
     @RequestMapping("{id}")
     Musicant showOne(@PathVariable String id) {
         return service.get(id);
@@ -38,7 +42,7 @@ public class OrchestraRestController {
 
     @DeleteMapping("{id}")
     void deleteOne(@PathVariable String id) {
-        // TODO
+        service.get(id);
     }
     @PostMapping()
     Musicant create(@RequestBody Musicant mus) {

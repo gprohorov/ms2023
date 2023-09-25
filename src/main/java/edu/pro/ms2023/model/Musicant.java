@@ -7,6 +7,7 @@ package edu.pro.ms2023.model;
   @since 11.09.23 - 11.48
 */
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,13 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
+@Schema(name = "Musician", description = "Something ")
 public class Musicant {
     @Id
+    @Schema(name = "ай-ді",
+            description = " mongoDb ідентифікатор",
+            example = "45ca551fb8ad658e5ca5d01",
+            accessMode = Schema.AccessMode.READ_ONLY)
     String id;
     String name;
     String description;
