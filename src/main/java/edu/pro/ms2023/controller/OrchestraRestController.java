@@ -21,8 +21,12 @@ import java.util.List;
 @Tag(name = " Контролер Оркестру", description = " Повний КРУД")
 public class OrchestraRestController {
 
+
+    private final OrchestraService service;
     @Autowired
-    OrchestraService service;
+    public OrchestraRestController(OrchestraService service) {
+        this.service = service;
+    }
 
     @RequestMapping("hello")
     String sayHello(){
