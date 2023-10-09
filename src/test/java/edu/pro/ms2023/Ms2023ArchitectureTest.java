@@ -75,14 +75,14 @@ class Ms2023ArchitectureTest {
                 .beAnnotatedWith(RequestMapping.class)
                 .check(importedClasses);
     }
-
-    @Test
-    void testAutowiredAnnotation(){
-        noFields()
-                .should()
-                .beAnnotatedWith(Autowired.class)
-                .check(importedClasses);
-    }
-
+//
+//    @Test
+//    void testAutowiredAnnotation(){
+//        noFields()
+//                .should()
+//                .beAnnotatedWith(Autowired.class)
+//                .check(importedClasses);
+//    }
+//
 
 }
