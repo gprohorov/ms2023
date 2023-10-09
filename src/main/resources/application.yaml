@@ -6,3 +6,11 @@ spring:
       port: 27017
   freemarker:
     suffix: .ftl
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

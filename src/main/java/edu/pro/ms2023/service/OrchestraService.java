@@ -26,7 +26,7 @@ public class OrchestraService {
     MusRepository repository;
 
   //  @PostConstruct
-    void init(){
+    void init() {
         orchestra.add(new Musicant("1","John Lennon", "Beatles"));
         orchestra.add(new Musicant("2","Freddie Mercury ", "Queen"));
         orchestra.add(new Musicant("3","Tarja Turunen", "Nightwish"));
