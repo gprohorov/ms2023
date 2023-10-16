@@ -3,7 +3,7 @@ spring:
     mongodb:
       database: ms2023
       host: localhost
-      port: 27017
+      port: 27018
   freemarker:
     suffix: .ftl
 management:
