@@ -2,15 +2,8 @@ spring:
   data:
     mongodb:
       database: ms2023
-      host: localhost
-      port: 27018
+      host: mongodb
+      port: 27017
   freemarker:
     suffix: .ftl
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
+
